@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+	<style>
+        a {
+        text-decoration: none;
+        color: white;
+        }
+  </style>
+</head>
+<body style="background-color: grey;">
+<div class="container" style="text-align: center;">
+			<form class="login" method="post">
+				<div class="login__field">
+					<input type="text" class="login__input" placeholder="Login" style="width: 150px; height: 30px;" name="login">
+				</div>
+				<div class="login__field" >
+					<input type="password" class="login__input" placeholder="Password" style="width: 150px; height: 30px;" name="passwrd">
+				</div>
+                <div class="login__field" >
+					<input type="text" class="login__input" placeholder="FIO" style="width: 150px; height: 30px;" name="fio">
+				</div>
+                <div class="login__field" >
+					<input type="email" class="login__input" placeholder="Email" style="width: 150px; height: 30px;" name="email">
+				</div>
+                <fieldset>
+  				<legend>Какая ваша роль:</legend>
+				<div>
+ 				 <input type="radio"  id="customer" name="role" value="customer" onchange="showExperienceField()" />
+  				<label for="customer">Customer</label>
+				</div>
+					<div>
+  					<input type="radio"  id="executor" name="role" value="executor" onchange="showExperienceField()" />
+  					<label for="executor">Executor</label>
+				</div>
+
+<div id="experienceField" style="display: none;">
+  <label for="experience">Опыт:</label>
+  <input type="text" id="experience" name="experience">
+</div>
+
+<script>
+function showExperienceField() {
+  var executorRadio = document.getElementById("executor");
+  var experienceField = document.getElementById("experienceField");
+  if (executorRadio.checked) {
+    experienceField.style.display = "block";
+  } else {
+    experienceField.style.display = "none";
+  }
+}
+</script>
+
+</fieldset>
+				<button class="button login__submit">
+					<span class="button__text" style="width: 150px; height: 30px;">Зарегистрироваться</span>
+				</button>
+			</form>
+</div>
+<a href="{{ url_for('index') }}" style="float: right;">Назад</a>
+</body>
+</html>
